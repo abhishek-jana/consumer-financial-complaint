@@ -1,3 +1,6 @@
 .vscode
 *.egg-info
 .env
+logs
+artifact
+__pycache__
