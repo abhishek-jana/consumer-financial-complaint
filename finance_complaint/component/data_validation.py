@@ -38,7 +38,7 @@ class DataValidation():
         try:
             dataframe: DataFrame = spark_session.read.parquet(
                 self.data_ingestion_artifact.feature_store_file_path
-            ).limit(10000) # remove limit during deployment
+            )#.limit(10000) # remove limit during deployment
             logger.info(f"Data frame is created using file: {self.data_ingestion_artifact.feature_store_file_path}")
             logger.info(f"Number of row: {dataframe.count()} and column: {len(dataframe.columns)}")
             return dataframe

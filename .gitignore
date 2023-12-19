@@ -6,3 +6,5 @@ artifact
 __pycache__
 data
 saved_models
+venv
+data

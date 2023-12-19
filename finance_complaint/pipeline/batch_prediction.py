@@ -24,7 +24,7 @@ class BatchPrediction:
             finance_estimator = FinanceComplaintEstimator()
             for file_name in input_files:
                 data_file_path = os.path.join(self.batch_config.inbox_dir,file_name)
-                df:DataFrame = spark_session.read.parquet(data_file_path).limit(1000) # remove this later
+                df:DataFrame = spark_session.read.parquet(data_file_path)#.limit(1000) # remove this later
                 prediction_df = finance_estimator.transform(dataframe=df)
                 prediction_file_path = os.path.join(self.batch_config.outbox_dir,f"{file_name}_{TIMESTAMP}")
                 prediction_df.write.parquet(prediction_file_path)
